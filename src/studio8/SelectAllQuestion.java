@@ -1,27 +1,36 @@
 package studio8;
 
+import java.util.Scanner;
+
 import support.cse131.NotYetImplementedException;
 
 public class SelectAllQuestion extends MultipleChoiceQuestion {
-
-	/**
-	 * Constructor
-	 * 
-	 * @param prompt
-	 * @param answer
-	 * @param choices
-	 */
-	public SelectAllQuestion(String prompt, String answer, String[] choices) {
-		// Hint: 1 point per choice
-		throw new NotYetImplementedException();
+	public int points;
+	public SelectAllQuestion(String prompt, String answer, String[] choices, int points) {
+		super(prompt, answer, 0, choices);
+		points = 0;
 	}
-	
+	public SelectAllQuestion() {
+		super();
+		points = 0;
+	}
 	/**
 	 * Returns the amount of points scored by a provided givenAnswer
 	 * @param String givenAnswer to check for points
 	 */
 	public int checkAnswer(String givenAnswer) {
-		throw new NotYetImplementedException();
+		for (int i = 0; i < choices.length; i++){
+			if(answer.equals(choices[i]) == true && answer.equals(givenAnswer) == false) {
+				
+			} 
+			else if (answer.equals(givenAnswer) == false){
+
+			}
+			else{
+				
+			}
+		}
+		return sum;
 	}
 
 	/**
@@ -67,6 +76,11 @@ public class SelectAllQuestion extends MultipleChoiceQuestion {
 	}	
 	
 	public static void main(String[] args) {	
-		
+		Scanner in = new Scanner(System.in);
+		String[] choices = {"1", "2", "3", "4"};
+		SelectAllQuestion question = new SelectAllQuestion("What is the answer to 2+2", "4,2", 10, choices);
+		question2.displayPrompt();
+		String answer = in.nextLine();
+		System.out.println(question2.checkAnswer(answer));
 	}
 }

@@ -1,19 +1,21 @@
 package studio8;
-
+import java.util.Scanner;
 import support.cse131.NotYetImplementedException;
 
 public class Question {
-	
-	/**
-	 * Constructor
-	 * @param prompt
-	 * @param answer
-	 * @param points
-	 */
+	public String prompt;
+	public String answer;
+	public int points;
 	public Question(String prompt, String answer, int points) {
-		throw new NotYetImplementedException();
+		this.prompt = prompt;
+		this.answer = answer;
+		this.points = points;
 	}
-	
+	public Question (){
+		this.prompt = "";
+		this.answer = "";
+		this.points = 0;
+	}	
 	/**
 	 * Prints out the current question's prompt, with a parenthetical 
 	 * number of points possible.
@@ -40,7 +42,7 @@ public class Question {
 	 * @return int points
 	 */
 	public int getPoints() {
-		throw new NotYetImplementedException();
+		return points;
 	}
 	
 	/**
@@ -48,10 +50,14 @@ public class Question {
 	 * @return String answer
 	 */
 	public String getAnswer() {
-		throw new NotYetImplementedException();
+		return answer;
 	}
 	
 	public static void main(String[] args) {
-		// TODO: Create a Question object of your own!
+		Scanner in = new Scanner(System.in);
+		Question question = new Question("What is the answer to 2+2", "4", 10);
+		question.displayPrompt();
+		String answer = in.nextLine();
+		System.out.println(question.checkAnswer(answer));
 	}
 }
